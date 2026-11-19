@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رَقِيم | Raqeem Studio - تنسيق مستندات Word وصناعة الانفوجرافيك</title>
+  <meta name="description" content="استوديو متكامل لتنسيق مستندات Word، وصناعة الانفوجرافيك التعليمي والتحليلي الاحترافي باستخدام فريمات وقوالب مرجعية ذكية.">
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231B365D'><path d='M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z'/></svg>">
+
+  <!-- Google Fonts: Cairo & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top App Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-shapes"></i>
+        </div>
+        <div class="brand-text">
+          <h1>رَقِيم <span>Raqeem Studio</span></h1>
+          <p>هندسة الكلمة وإبداع الصورة | تنسيق مستندات Word وصناعة الانفوجرافيك الذكي</p>
+        </div>
+      </div>
+
+      <!-- Studio Mode Switcher Tabs -->
+      <div class="studio-mode-switch">
+        <button id="tab-btn-docs" class="mode-tab-btn active" onclick="switchStudioMode('docs')">
+          <i class="fa-solid fa-file-word"></i> استوديو مستندات Word
+        </button>
+        <button id="tab-btn-infographics" class="mode-tab-btn" onclick="switchStudioMode('infographics')">
+          <i class="fa-solid fa-palette"></i> استوديو صانع الانفوجرافيك <span class="hot-badge">جديد 🔥</span>
+        </button>
+      </div>
+
+      <div class="nav-badges">
+        <span class="badge badge-primary"><i class="fa-brands fa-github"></i> GitHub Ready</span>
+        <span class="badge badge-author"><i class="fa-solid fa-crown"></i> م. أبو آيسل — AI Navigators</span>
+      </div>
+
+      <div class="nav-actions">
+        <button id="btn-quick-export" class="btn btn-primary" onclick="handleQuickAction()">
+          <i class="fa-solid fa-download"></i> تصدير Word
+        </button>
+        <button class="btn btn-icon" onclick="window.print()" title="طباعة / تصدير PDF">
+          <i class="fa-solid fa-print"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       SECTION 1: WORD DOCUMENT STUDIO (Active by default)
+       ========================================================================= -->
+  <div id="section-docs-studio" class="studio-section-view active">
+
+    <!-- Document Genre Quick Presets -->
+    <section class="presets-section">
+      <div class="container">
+        <div class="presets-wrapper">
+          <span class="presets-label"><i class="fa-solid fa-sliders"></i> قوالب سريعة حسب نوع المستند:</span>
+          <div class="presets-buttons">
+            <button class="btn-preset" onclick="applyPreset('study')">
+              <i class="fa-solid fa-graduation-cap"></i> مذكرة دراسية / تعليمية
+            </button>
+            <button class="btn-preset active" onclick="applyPreset('business')">
+              <i class="fa-solid fa-chart-line"></i> تقرير إداري / أعمال
+            </button>
+            <button class="btn-preset" onclick="applyPreset('academic')">
+              <i class="fa-solid fa-book-bookmark"></i> بحث علمي / تخرج
+            </button>
+            <button class="btn-preset" onclick="applyPreset('book')">
+              <i class="fa-solid fa-book-open"></i> كتاب / كتيب تعريفي
+            </button>
+            <button class="btn-preset" onclick="applyPreset('memo')">
+              <i class="fa-solid fa-envelope-open-text"></i> خطاب رسمي / عقد
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero & Sparks Selector Section -->
+    <section class="sparks-section">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><i class="fa-solid fa-wand-magic-sparkles text-amber"></i> اختر شرارة التنسيق والنمط البصري لملفك</h2>
+          <p>تتكيف الأداة مع أي نوع مستند عبر 4 شرارات تنسيقية احترافية تضمن أعلى درجات التناسق والمقروئية:</p>
+        </div>
+
+        <div class="sparks-grid">
+          <!-- Spark 1: Executive Corporate -->
+          <div class="spark-card active" data-spark="corporate" onclick="selectSpark('corporate')">
+            <div class="spark-card-header">
+              <span class="spark-tag"><i class="fa-solid fa-briefcase"></i> رسمي وفاخر</span>
+              <div class="spark-palette">
+                <span class="color-dot" style="background: #1B365D;"></span>
+                <span class="color-dot" style="background: #4A90E2;"></span>
+                <span class="color-dot" style="background: #D97706;"></span>
+              </div>
+            </div>
+            <h3>1. النمط الإداري والمؤسسي الفاخر</h3>
+            <p class="spark-desc">مظهر قيادي ورسمي رصين لكبرى الشركات والمؤسسات. صفحة غلاف أعمال أنيقة وجداول مؤشرات أداء متناسقة.</p>
+            <ul class="spark-features">
+              <li><i class="fa-solid fa-check"></i> غلاف رسمي مع سجل بيانات الوثيقة والاعتمادات</li>
+              <li><i class="fa-solid fa-check"></i> ترقيم هرمي رسمي (1.0 ثم 1.1 ثم 1.1.1)</li>
+            </ul>
+            <div class="spark-action">
+              <span class="btn-select"><i class="fa-solid fa-circle-check"></i> مفعّـل حالياً</span>
+            </div>
+          </div>
+
+          <!-- Spark 2: Educational -->
+          <div class="spark-card" data-spark="educational" onclick="selectSpark('educational')">
+            <div class="spark-card-header">
+              <span class="spark-tag tag-edu"><i class="fa-solid fa-lightbulb"></i> تفاعلي وتحفيزي</span>
+              <div class="spark-palette">
+                <span class="color-dot" style="background: #0284C7;"></span>
+                <span class="color-dot" style="background: #10B981;"></span>
+                <span class="color-dot" style="background: #F97316;"></span>
+              </div>
+            </div>
+            <h3>2. النمط التعليمي والدراسي التفاعلي</h3>
+            <p class="spark-desc">تصميم مبهج ومنظم يشجع الطلاب على الفهم والاستيعاب، مع مربعات "تذكر"، "سؤال للمراجعة"، وتلخيصات سهلة الحفظ.</p>
+            <ul class="spark-features">
+              <li><i class="fa-solid fa-check"></i> صناديق ملونة واضحة للقواعد والأسئلة والتنبيهات</li>
+              <li><i class="fa-solid fa-check"></i> جداول مقارنة ثنائية سهلة التذكر</li>
+            </ul>
+            <div class="spark-action">
+              <span class="btn-select">اختر هذه الشرارة</span>
+            </div>
+          </div>
+
+          <!-- Spark 3: Academic -->
+          <div class="spark-card" data-spark="academic" onclick="selectSpark('academic')">
+            <div class="spark-card-header">
+              <span class="spark-tag tag-academic"><i class="fa-solid fa-book-open-reader"></i> رصين ومنهجي</span>
+              <div class="spark-palette">
+                <span class="color-dot" style="background: #111827;"></span>
+                <span class="color-dot" style="background: #2563EB;"></span>
+                <span class="color-dot" style="background: #991B1B;"></span>
+              </div>
+            </div>
+            <h3>3. النمط الأكاديمي والبحثي الرصين</h3>
+            <p class="spark-desc">مظهر موحد يلتزم بأدلة الجامعات والمجلات العلمية (IEEE / APA)، مع هوامش تجليد مخصصة وتوثيق منضبط للمراجع.</p>
+            <ul class="spark-features">
+              <li><i class="fa-solid fa-check"></i> ترقيم نظامي للجداول والأشكال (جدول 1:، شكل 1:)</li>
+              <li><i class="fa-solid fa-check"></i> هوامش محسوبة للتجليد والطباعة المزدوجة (Gutter)</li>
+            </ul>
+            <div class="spark-action">
+              <span class="btn-select">اختر هذه الشرارة</span>
+            </div>
+          </div>
+
+          <!-- Spark 4: Modern Minimalist -->
+          <div class="spark-card" data-spark="minimalist" onclick="selectSpark('minimalist')">
+            <div class="spark-card-header">
+              <span class="spark-tag tag-tech"><i class="fa-solid fa-feather-pointed"></i> عصري ومريح</span>
+              <div class="spark-palette">
+                <span class="color-dot" style="background: #334155;"></span>
+                <span class="color-dot" style="background: #0D9488;"></span>
+                <span class="color-dot" style="background: #7C3AED;"></span>
+              </div>
+            </div>
+            <h3>4. النمط العصري والإبداعي الهادئ</h3>
+            <p class="spark-desc">مساحات بيضاء واسعة مريحة للقراءة وسرد بصري انسيابي، مع اقتباسات مميزة وعناوين ناعمة بلا بهرجة زائدة.</p>
+            <ul class="spark-features">
+              <li><i class="fa-solid fa-check"></i> خطوط نظيفة ومسافات أسطر مريحة جداً للعين</li>
+              <li><i class="fa-solid fa-check"></i> كتل نصية وبطاقات اقتباس أنيقة</li>
+            </ul>
+            <div class="spark-action">
+              <span class="btn-select">اختر هذه الشرارة</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Interactive Studio Section -->
+    <main class="studio-section">
+      <div class="container studio-layout">
+
+        <!-- LEFT COLUMN: Input & Customization Studio -->
+        <aside class="studio-sidebar">
+          
+          <!-- Accordion 1: Document Details & Metadata -->
+          <div class="accordion-item active">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <h4><i class="fa-solid fa-id-card-clip"></i> بيانات وهوية المستند</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <div class="accordion-content">
+              <div class="form-group">
+                <label><i class="fa-solid fa-heading"></i> عنوان المستند الرئيسي:</label>
+                <input type="text" id="doc-title" class="form-control" value="التقرير الإداري السنوي وخطة تطوير الأعمال 2026" oninput="updateLivePreview()">
+              </div>
+              <div class="form-group">
+                <label><i class="fa-solid fa-paragraph"></i> العنوان الفرعي أو التوضيحي:</label>
+                <input type="text" id="doc-subtitle" class="form-control" value="مؤشرات الأداء الرئيسية والخطط التشغيلية المستقبلية" oninput="updateLivePreview()">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label>اسم الجهة / المؤسسة / المدرسة:</label>
+                  <input type="text" id="doc-org" class="form-control" value="مجموعة الرواد الدولية للاستشارات والتطوير" oninput="updateLivePreview()">
+                </div>
+                <div class="form-group col-6">
+                  <label>الجهة الموجه إليها المستند:</label>
+                  <input type="text" id="doc-client" class="form-control" value="مجلس الإدارة والشركاء الاستراتيجيين" oninput="updateLivePreview()">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-4">
+                  <label>إعداد الكاتب / المعلم:</label>
+                  <input type="text" id="doc-author" class="form-control" value="أحمد حمدي" oninput="updateLivePreview()">
+                </div>
+                <div class="form-group col-4">
+                  <label>المراجعة والتدقيق:</label>
+                  <input type="text" id="doc-checker" class="form-control" value="فريق الجودة والتحرير" oninput="updateLivePreview()">
+                </div>
+                <div class="form-group col-4">
+                  <label>الاعتماد / التوثيق:</label>
+                  <input type="text" id="doc-approver" class="form-control" value="الإدارة العامة" oninput="updateLivePreview()">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label>كود المستند / رقم الإصدار:</label>
+                  <input type="text" id="doc-ref" class="form-control" value="DOC-2026-REP-01 (الإصدار 1.0)" oninput="updateLivePreview()">
+                </div>
+                <div class="form-group col-6">
+                  <label>تاريخ الإصدار / السنة الدراسية:</label>
+                  <input type="text" id="doc-date" class="form-control" value="نوفمبر 2026" oninput="updateLivePreview()">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion 2: Content & Sections Editor -->
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <h4><i class="fa-solid fa-list-check"></i> محتوى الأقسام وصناديق التمييز</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <div class="accordion-content">
+              <div class="form-group">
+                <label>المقدمة / الملخص / نبذة عن الدرس أو التقرير:</label>
+                <textarea id="doc-summary" class="form-control" rows="3" oninput="updateLivePreview()">نستعرض في هذا المستند مخرجات العمل والنتائج المحققة خلال الفترة الماضية، مع وضع خارطة طريق متكاملة لتطوير الأداء ورفع كفاءة العمل وتحقيق المستهدفات بجودة عالية وإتقان مستمر.</textarea>
+              </div>
+
+              <div class="form-group">
+                <label>صندوق الإبراز (Callout Box):</label>
+                <div class="form-row">
+                  <div class="col-8">
+                    <input type="text" id="callout-title" class="form-control" value="توجيه استراتيجي هام" oninput="updateLivePreview()">
+                  </div>
+                  <div class="col-4">
+                    <select id="callout-type" class="form-control" onchange="updateLivePreview()">
+                      <option value="note">📌 ملاحظة هامة</option>
+                      <option value="spec">💡 فكرة وقاعدة ذهبية</option>
+                      <option value="warning">⚠️ تنبيه واشتراط</option>
+                    </select>
+                  </div>
+                </div>
+                <textarea id="callout-text" class="form-control mt-2" rows="2" oninput="updateLivePreview()">يعد الالتزام بمؤشرات القياس الأسبوعية ومتابعة تقارير الإنجاز أولاً بأول ركيزة أساسية لضمان نجاح المسار وتحقيق النتائج المطلوبة دون تأخير.</textarea>
+              </div>
+
+              <div class="form-group">
+                <label>عنوان الفصل الثاني أو جدول البيانات:</label>
+                <input type="text" id="sec2-title" class="form-control" value="مؤشرات الأداء وجدول مقارنة النتائج" oninput="updateLivePreview()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion 3: Typography & Document Setup -->
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <h4><i class="fa-solid fa-sliders"></i> إعدادات الخطوط والصفحة</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <div class="accordion-content">
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label>نوع الخط المعتمد:</label>
+                  <select id="doc-font" class="form-control" onchange="updateFont(this.value)">
+                    <option value="'Cairo', sans-serif">Cairo (عصري قياسي - موصى به)</option>
+                    <option value="Arial, sans-serif">Arial (كلاسيكي رسمي)</option>
+                    <option value="Tahoma, sans-serif">Tahoma (واضح وسهل القراءة)</option>
+                    <option value="'Segoe UI', sans-serif">Segoe UI (تكنولوجي وعملي)</option>
+                  </select>
+                </div>
+                <div class="form-group col-6">
+                  <label>اتجاه المستند ولغته:</label>
+                  <select id="doc-direction" class="form-control" onchange="updateDirection(this.value)">
+                    <option value="rtl">عربي بالكامل (RTL)</option>
+                    <option value="ltr">English (LTR)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- RIGHT COLUMN: Realistic Live Paper Preview -->
+        <section class="studio-preview-pane">
+          <div class="preview-toolbar">
+            <div class="toolbar-title">
+              <i class="fa-solid fa-eye text-primary"></i> المعاينة الحية لصفحات Word (A4 Real Preview)
+            </div>
+            <div class="toolbar-actions">
+              <button class="btn btn-sm btn-ghost" onclick="setZoom(0.8)"><i class="fa-solid fa-magnifying-glass-minus"></i> 80%</button>
+              <button class="btn btn-sm btn-ghost active" onclick="setZoom(1.0)">100%</button>
+              <button class="btn btn-sm btn-ghost" onclick="setZoom(1.15)"><i class="fa-solid fa-magnifying-glass-plus"></i> 115%</button>
+              <button class="btn btn-sm btn-primary" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة فورية</button>
+            </div>
+          </div>
+
+          <div class="preview-scroll-area">
+            <div id="paper-viewport" class="paper-viewport">
+              
+              <!-- PAGE 1: COVER PAGE -->
+              <div id="page-cover" class="paper-page a4-page">
+                <div class="page-inner cover-page-layout">
+                  <div class="cover-org-header" id="pv-org">مجموعة الرواد الدولية للاستشارات والتطوير</div>
+                  <div class="cover-divider"></div>
+                  
+                  <div class="cover-title-group">
+                    <h1 class="cover-main-title" id="pv-title">التقرير الإداري السنوي وخطة تطوير الأعمال 2026</h1>
+                    <p class="cover-subtitle" id="pv-subtitle">مؤشرات الأداء الرئيسية والخطط التشغيلية المستقبلية</p>
+                  </div>
+
+                  <!-- Document Information Matrix -->
+                  <div class="doc-control-matrix-wrapper">
+                    <div class="matrix-heading">بطاقة معلومات المستند والاعتماد</div>
+                    <table class="doc-control-table" id="pv-matrix-table">
+                      <tr>
+                        <td class="col-label">عنوان المستند:</td>
+                        <td class="col-val" id="pv-table-title" colspan="3">التقرير الإداري وخطة تطوير الأعمال</td>
+                      </tr>
+                      <tr>
+                        <td class="col-label">الجهة الصادرة:</td>
+                        <td class="col-val" id="pv-client">مجلس الإدارة والشركاء</td>
+                        <td class="col-label">كود المستند:</td>
+                        <td class="col-val" id="pv-ref">DOC-2026-REP-01</td>
+                      </tr>
+                      <tr>
+                        <td class="col-label">إعداد وتأليف:</td>
+                        <td class="col-val" id="pv-author">أحمد حمدي</td>
+                        <td class="col-label">تاريخ الإصدار:</td>
+                        <td class="col-val" id="pv-date">نوفمبر 2026</td>
+                      </tr>
+                      <tr>
+                        <td class="col-label">مراجعة وتدقيق:</td>
+                        <td class="col-val" id="pv-checker">فريق الجودة والتحرير</td>
+                        <td class="col-label">الاعتماد:</td>
+                        <td class="col-val" id="pv-approver">الإدارة العامة</td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="cover-footer-notice">
+                    <span>تم إعداد وتنسيق هذا المستند وفق أعلى معايير الإخراج المكتبي الاحترافي</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PAGE BREAK VISUAL -->
+              <div class="page-break-indicator">
+                <span><i class="fa-solid fa-scissors"></i> بداية متن المستند (الصفحة 2)</span>
+              </div>
+
+              <!-- PAGE 2: CONTENT & TABLES -->
+              <div id="page-content" class="paper-page a4-page">
+                <div class="page-inner content-page-layout">
+                  
+                  <!-- Running Header -->
+                  <div class="running-header">
+                    <span id="pv-rh-title">التقرير الإداري السنوي وخطة تطوير الأعمال</span>
+                    <span id="pv-rh-ref">DOC-2026-REP-01 | الإصدار 1.0</span>
+                  </div>
+
+                  <!-- Section 1.0 -->
+                  <div class="sec-heading-1" id="pv-h1-1">1.0 المقدمة العامة والأهداف الرئيسية</div>
+                  <p class="sec-paragraph" id="pv-summary-text">
+                    نستعرض في هذا المستند مخرجات العمل والنتائج المحققة خلال الفترة الماضية، مع وضع خارطة طريق متكاملة لتطوير الأداء ورفع كفاءة العمل وتحقيق المستهدفات بجودة عالية وإتقان مستمر.
+                  </p>
+
+                  <!-- Callout Box -->
+                  <div class="callout-box" id="pv-callout">
+                    <div class="callout-title" id="pv-callout-title">📌 توجيه استراتيجي هام:</div>
+                    <div class="callout-body" id="pv-callout-body">
+                      يعد الالتزام بمؤشرات القياس الأسبوعية ومتابعة تقارير الإنجاز أولاً بأول ركيزة أساسية لضمان نجاح المسار وتحقيق النتائج المطلوبة دون تأخير.
+                    </div>
+                  </div>
+
+                  <!-- Section 2.0 -->
+                  <div class="sec-heading-1" id="pv-h1-2">2.0 مؤشرات الأداء وجدول مقارنة النتائج</div>
+                  <p class="sec-paragraph" id="pv-sec2-intro">
+                    يوضح الجدول التالي توزيع الأهداف المحققة مقارنة بالمستهدف الزمني ونسبة الإنجاز الكلية:
+                  </p>
+
+                  <!-- Data Table -->
+                  <table class="eng-data-table" id="pv-data-table">
+                    <thead>
+                      <tr id="pv-table-header-row">
+                        <th>البند / المسار</th>
+                        <th>المستهدف</th>
+                        <th>المتحقق الفعلي</th>
+                        <th>نسبة الإنجاز</th>
+                        <th>حالة التقييم</th>
+                      </tr>
+                    </thead>
+                    <tbody id="pv-table-body">
+                      <tr>
+                        <td>تطوير المحتوى والحقائب التدريبية</td>
+                        <td>12 وحدة</td>
+                        <td>12 وحدة</td>
+                        <td>100%</td>
+                        <td><span class="status-badge status-ok">مكتمل ومتميز</span></td>
+                      </tr>
+                      <tr>
+                        <td>تدريب وتأهيل الكوادر المستهدفة</td>
+                        <td>150 متدرب</td>
+                        <td>165 متدرب</td>
+                        <td>110%</td>
+                        <td><span class="status-badge status-ok">تجاوز المستهدف</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- Running Footer -->
+                  <div class="running-footer">
+                    <span id="pv-rf-footer">وثيقة رسمية منسقة — جميع الحقوق محفوظة</span>
+                    <span>صفحة 2 من 2</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Multi-Delivery Studio Section -->
+    <section class="delivery-section">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><i class="fa-solid fa-boxes-packing text-primary"></i> استوديو التصدير والتسليم المتعدد (Multi-Delivery Hub)</h2>
+          <p>احصل على وثيقتك فوراً بالصيغة الأنسب لبيئة عملك:</p>
+        </div>
+
+        <!-- Delivery Tabs -->
+        <div class="delivery-tabs">
+          <button class="delivery-tab active" data-tab="docx" onclick="switchDeliveryTab('docx')">
+            <i class="fa-solid fa-file-word"></i> تحميل مستند Word (.docx)
+          </button>
+          <button class="delivery-tab" data-tab="vba" onclick="switchDeliveryTab('vba')">
+            <i class="fa-solid fa-code"></i> ماكرو VBA لبرنامج Word
+          </button>
+          <button class="delivery-tab" data-tab="gemini" onclick="switchDeliveryTab('gemini')">
+            <i class="fa-solid fa-robot"></i> برومبت GEM المعتمد لـ Gemini
+          </button>
+          <button class="delivery-tab" data-tab="markdown" onclick="switchDeliveryTab('markdown')">
+            <i class="fa-solid fa-file-code"></i> نصوص Markdown مهيكلة
+          </button>
+        </div>
+
+        <!-- Tab Content Area -->
+        <div class="tab-content-container">
+
+          <!-- TAB 1: DOCX DOWNLOAD -->
+          <div id="tab-docx" class="tab-pane active">
+            <div class="download-card">
+              <div class="download-icon">
+                <i class="fa-solid fa-file-word"></i>
+              </div>
+              <div class="download-details">
+                <h3>توليد وتنزيل ملف Microsoft Word المنسق فوراً</h3>
+                <p>يتم تجميع كافة البيانات والمحتوى الذي أدخلته مع نمط التنسيق والباليتة المختارة، وتوليد ملف Word كامل متضمن الغلاف، الفواصل، الجداول، وصناديق الإبراز.</p>
+                <div class="doc-specs-tags">
+                  <span><i class="fa-solid fa-check"></i> مقاس A4 قياسي</span>
+                  <span><i class="fa-solid fa-check"></i> هوامش 2.54 سم متناسقة</span>
+                  <span><i class="fa-solid fa-check"></i> جداول ملونة ومظللة</span>
+                  <span><i class="fa-solid fa-check"></i> جاهز للطباعة والتعديل</span>
+                </div>
+              </div>
+              <div class="download-action">
+                <button class="btn btn-lg btn-primary" onclick="exportWordDocument()">
+                  <i class="fa-solid fa-cloud-arrow-down"></i> تنزيل ملف Word (.doc / .docx)
+                </button>
+                <span id="download-status" class="status-msg"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: VBA MACRO -->
+          <div id="tab-vba" class="tab-pane">
+            <div class="code-box-header">
+              <span><i class="fa-solid fa-terminal"></i> كود ماكرو VBA متكيف مع نمط التنسيق المختار:</span>
+              <button class="btn btn-sm btn-secondary" onclick="copyVbaMacro()">
+                <i class="fa-solid fa-copy"></i> نسخ كود الماكرو
+              </button>
+            </div>
+            <div class="instructions-steps">
+              <span class="step-badge">1. افتح ملفك في Word واضغط Alt + F11</span>
+              <span class="step-badge">2. اضغط Insert ثم Module والصق الكود</span>
+              <span class="step-badge">3. اضغط F5 لتنسيق المستند بنقرة واحدة!</span>
+            </div>
+            <pre class="code-display" id="vba-code-output"></pre>
+          </div>
+
+          <!-- TAB 3: GEMINI GEM PROMPT -->
+          <div id="tab-gemini" class="tab-pane">
+            <div class="code-box-header">
+              <span><i class="fa-solid fa-brain"></i> برومبت الـ GEM التشغيلي الشامل لـ Google Gemini:</span>
+              <button class="btn btn-sm btn-accent" onclick="copyGeminiPrompt()">
+                <i class="fa-solid fa-copy"></i> نسخ البرومبت كاملاً
+              </button>
+            </div>
+            <p class="text-muted mb-2">انسخ هذا النص وضعه في خانة <strong>Instructions</strong> عند إنشاء Gem جديد في <a href="https://gemini.google.com/gems" target="_blank" rel="noopener">gemini.google.com/gems</a>.</p>
+            <pre class="code-display" id="gemini-prompt-output"></pre>
+          </div>
+
+          <!-- TAB 4: MARKDOWN -->
+          <div id="tab-markdown" class="tab-pane">
+            <div class="code-box-header">
+              <span><i class="fa-solid fa-file-lines"></i> نص المستند بتنسيق Markdown مهيكل للنسخ المباشر:</span>
+              <button class="btn btn-sm btn-primary" onclick="copyMarkdown()">
+                <i class="fa-solid fa-copy"></i> نسخ الـ Markdown
+              </button>
+            </div>
+            <pre class="code-display" id="markdown-output"></pre>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- END SECTION DOCS STUDIO -->
+
+
+  <!-- =========================================================================
+       SECTION 2: INFOGRAPHIC STUDIO & FRAMES GALLERY (NEW)
+       ========================================================================= -->
+  <div id="section-infographics-studio" class="studio-section-view">
+    
+    <!-- Hero Infographic -->
+    <section class="info-hero-section">
+      <div class="container">
+        <div class="info-hero-card">
+          <div class="info-hero-text">
+            <h2><i class="fa-solid fa-wand-magic-sparkles text-amber"></i> استوديو صانع الانفوجرافيك الذكي بالفريمات المرجعية</h2>
+            <p>حوّل أي فكرة، درس تعليمي، أو ملخص تحليلي إلى **انفوجرافيك مذهل** بالاعتماد على مكتبة الفريمات المرجعية والتأكيد التفاعلي على البيانات المطلوبة.</p>
+            <div class="info-hero-badges">
+              <span class="badge badge-accent"><i class="fa-solid fa-layer-group"></i> 19 فريم مرجعي معتمد</span>
+              <span class="badge badge-primary"><i class="fa-solid fa-robot"></i> مولّد برومبتات صور Midjourney / Ideogram</span>
+              <span class="badge badge-author"><i class="fa-solid fa-file-word"></i> إدراج مباشر في Word</span>
+            </div>
+          </div>
+          <div class="info-hero-action">
+            <button class="btn btn-lg btn-accent" onclick="scrollToInfographicBuilder()">
+              <i class="fa-solid fa-pencil"></i> ابدأ تصميم انفوجرافيك الآن
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infographic Interactive Workspace -->
+    <section class="info-workspace-section" id="info-builder-area">
+      <div class="container studio-layout">
+        
+        <!-- Sidebar: Intake & Data Confirmation Gate -->
+        <aside class="studio-sidebar">
+          <div class="accordion-item active">
+            <div class="accordion-header">
+              <h4><i class="fa-solid fa-clipboard-check text-amber"></i> تأكيد بيانات الانفوجرافيك (Confirmation Gate)</h4>
+            </div>
+            <div class="accordion-content" style="display: block;">
+              
+              <div class="form-group">
+                <label><i class="fa-solid fa-heading"></i> موضوع أو درس الانفوجرافيك:</label>
+                <input type="text" id="info-topic" class="form-control" value="أنواع الجملة في اللغة العربية وأركانها الأساسية" oninput="updateInfographicPreview()">
+              </div>
+
+              <div class="form-group">
+                <label><i class="fa-solid fa-bullseye"></i> الفكرة المركزية والهدف التعليمي:</label>
+                <textarea id="info-concept" class="form-control" rows="2" oninput="updateInfographicPreview()">بيان الفرق الجوهري بين الجملة الاسمية والجملة الفعلية مع ذكر أركان كل جملة وأمثلة تطبيقية واضحة وممتعة للطلاب.</textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label>عدد الأقسام / الأعمدة:</label>
+                  <select id="info-split" class="form-control" onchange="updateInfographicLayout()">
+                    <option value="dual">عمودان متقابلان (مقارنة ثنائية)</option>
+                    <option value="triple">3 أعمدة أو أقسام</option>
+                    <option value="quad">4 أعمدة فصول / مراحل</option>
+                    <option value="grid8">شبكة 8 بطاقات تفصيلية</option>
+                  </select>
+                </div>
+                <div class="form-group col-6">
+                  <label>النمط البصري المطلوب:</label>
+                  <select id="info-style" class="form-control" onchange="updateInfographicPreview()">
+                    <option value="3d-glossy">مجسم 3D لامع (Claymorphic / كرتوني)</option>
+                    <option value="analytical">فكري وتحليلي عميق (Dark / Mindmap)</option>
+                    <option value="cyberpunk">تكنولوجي ومستقبلي (Cyberpunk / AI)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Section 1 details -->
+              <div class="form-group">
+                <label>القسم الأول (الاسم + الشرح):</label>
+                <div class="form-row">
+                  <input type="text" id="info-s1-title" class="form-control col-6" value="الجملة الاسمية" oninput="updateInfographicPreview()">
+                  <input type="text" id="info-s1-core" class="form-control col-6" value="تبدأ باسم وتتكون من مبتدأ وخبر" oninput="updateInfographicPreview()">
+                </div>
+                <input type="text" id="info-s1-example" class="form-control mt-2" value="مثال: «العلمُ نورٌ يضيءُ العقول»" oninput="updateInfographicPreview()">
+              </div>
+
+              <!-- Section 2 details -->
+              <div class="form-group">
+                <label>القسم الثاني (الاسم + الشرح):</label>
+                <div class="form-row">
+                  <input type="text" id="info-s2-title" class="form-control col-6" value="الجملة الفعلية" oninput="updateInfographicPreview()">
+                  <input type="text" id="info-s2-core" class="form-control col-6" value="تبدأ بفعل وتتكون من فعل وفاعل" oninput="updateInfographicPreview()">
+                </div>
+                <input type="text" id="info-s2-example" class="form-control mt-2" value="مثال: «يشرقُ الصباحُ بالأمل والجد»" oninput="updateInfographicPreview()">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label>ملاحظة هامة للتذكر:</label>
+                  <input type="text" id="info-note" class="form-control" value="الفعل يدل على حدث مرتبط بزمن، أما الاسم فلا يرتبط بزمن." oninput="updateInfographicPreview()">
+                </div>
+                <div class="form-group col-6">
+                  <label>اسم المعد / التوقيع:</label>
+                  <input type="text" id="info-author" class="form-control" value="إعداد: خلود الحارثي | Abo Aisel" oninput="updateInfographicPreview()">
+                </div>
+              </div>
+
+              <div class="mt-2">
+                <button class="btn btn-primary w-100" onclick="generateAiInfographicPrompt()">
+                  <i class="fa-solid fa-sparkles"></i> توليد برومبت توليد الصورة الفائق (AI Prompt)
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Side: Live Generated Infographic Card & AI Prompt Hub -->
+        <main class="studio-preview-pane">
+          
+          <div class="preview-toolbar">
+            <div class="toolbar-title">
+              <i class="fa-solid fa-image text-amber"></i> معاينة تصميم الانفوجرافيك التفاعلي (Interactive Infographic)
+            </div>
+            <div class="toolbar-actions">
+              <button class="btn btn-sm btn-primary" onclick="copyAiPrompt()">
+                <i class="fa-solid fa-copy"></i> نسخ برومبت الصورة للـ AI
+              </button>
+            </div>
+          </div>
+
+          <div class="preview-scroll-area">
+            
+            <!-- LIVE INFOGRAPHIC POSTER CONTAINER -->
+            <div id="live-infographic-poster" class="info-poster-mockup">
+              
+              <!-- 3D Header Badge -->
+              <div class="info-poster-header">
+                <div class="info-header-icons left"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div class="info-header-badge">
+                  <div class="info-top-tag">مخطط تعليمي مبسط</div>
+                  <h2 id="pv-info-title">أنواع الجملة في اللغة العربية</h2>
+                  <div class="info-header-ribbon" id="pv-info-subtitle">الجملة الاسمية والجملة الفعلية وأركانهما</div>
+                </div>
+                <div class="info-header-icons right"><i class="fa-solid fa-lightbulb text-amber"></i></div>
+              </div>
+
+              <!-- Selected Active Frame Banner -->
+              <div class="active-frame-indicator" id="pv-active-frame-banner">
+                <i class="fa-solid fa-crosshairs"></i> الفريم المعتمد: <strong id="pv-frame-name">فريم المقارنة الثنائية والبطاقات المصورة (Frame 01)</strong>
+              </div>
+
+              <!-- Main Content Columns in Infographic -->
+              <div class="info-cards-grid dual-col" id="pv-info-cards-container">
+                
+                <!-- Column 1 -->
+                <div class="info-concept-card card-green">
+                  <div class="info-card-header">
+                    <span class="card-num-badge">1</span>
+                    <h3 id="pv-info-s1-title">الجملة الاسمية</h3>
+                  </div>
+                  <div class="info-card-body">
+                    <div class="info-core-pill" id="pv-info-s1-core">تبدأ باسم وتتكون من مبتدأ وخبر</div>
+                    <div class="info-example-box">
+                      <span class="badge-mini">مثال تطبيقي:</span>
+                      <p id="pv-info-s1-ex">«العلمُ نورٌ يضيءُ العقول»</p>
+                    </div>
+                    <div class="info-3d-icons">
+                      <span><i class="fa-solid fa-compass"></i> المبتدأ</span>
+                      <span><i class="fa-solid fa-sun"></i> الخبر</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="info-concept-card card-blue">
+                  <div class="info-card-header">
+                    <span class="card-num-badge">2</span>
+                    <h3 id="pv-info-s2-title">الجملة الفعلية</h3>
+                  </div>
+                  <div class="info-card-body">
+                    <div class="info-core-pill" id="pv-info-s2-core">تبدأ بفعل وتتكون من فعل وفاعل</div>
+                    <div class="info-example-box">
+                      <span class="badge-mini">مثال تطبيقي:</span>
+                      <p id="pv-info-s2-ex">«يشرقُ الصباحُ بالأمل والجد»</p>
+                    </div>
+                    <div class="info-3d-icons">
+                      <span><i class="fa-solid fa-bolt"></i> الفعل</span>
+                      <span><i class="fa-solid fa-user-check"></i> الفاعل</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Bottom Note Box -->
+              <div class="info-bottom-note">
+                <div class="note-bulb"><i class="fa-solid fa-lightbulb"></i></div>
+                <div class="note-text">
+                  <strong>ملاحظة هامة:</strong> <span id="pv-info-note">الفعل يدل على حدث مرتبط بزمن، أما الاسم فلا يرتبط بزمن.</span>
+                </div>
+              </div>
+
+              <!-- Poster Footer -->
+              <div class="info-poster-footer">
+                <div class="footer-credit" id="pv-info-author">
+                  <i class="fa-solid fa-feather-pointed"></i> إعداد: خلود الحارثي | Abo Aisel
+                </div>
+                <div class="footer-stationery">
+                  <i class="fa-solid fa-book"></i> <i class="fa-solid fa-pen-nib"></i>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Bottom: AI Prompt Box for Direct Image Generation -->
+          <div class="info-prompt-panel">
+            <div class="code-box-header">
+              <span><i class="fa-solid fa-wand-magic-sparkles text-amber"></i> برومبت توليد الصورة الكامل بالذكاء الاصطناعي (Midjourney / Ideogram / DALL-E):</span>
+              <button class="btn btn-sm btn-accent" onclick="copyAiPrompt()">
+                <i class="fa-solid fa-copy"></i> نسخ البرومبت بالإنجليزية
+              </button>
+            </div>
+            <pre class="code-display" id="ai-infographic-prompt-output"></pre>
+          </div>
+
+        </main>
+
+      </div>
+    </section>
+
+    <!-- Reference Frames Gallery Section -->
+    <section class="info-gallery-section">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2><i class="fa-solid fa-images text-primary"></i> معرض الفريمات والتصميمات المرجعية المرفقة (19 قالباً)</h2>
+          <p>اضغط على أي فريم لاعتماده كـ <strong>القالب البصري المرجعي</strong> لتصميم الانفوجرافيك الخاص بك:</p>
+        </div>
+
+        <div class="gallery-grid" id="infographics-gallery-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- END SECTION INFOGRAPHICS STUDIO -->
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h4>رَقِيم | Raqeem Studio</h4>
+        <p>المنسق الشامل لمستندات Word وصانع الانفوجرافيك الذكي — إهداء ورشة مهندس الأوامر المتقدمة 2026. جاهز للنشر على GitHub Pages مجاناً.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> خطوات النشر على GitHub</a>
+        <a href="#pv-title"><i class="fa-solid fa-arrow-up"></i> العودة للأعلى</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
